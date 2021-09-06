@@ -8,8 +8,8 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
  
 import winsound
-frequency = 2500  # Set Frequency To 2500 Hertz
-duration = 100  # Set Duration To 1000 ms == 1 second
+frequency = 440  # Set Frequency To 2500 Hertz
+duration = 200  # Set Duration To 1000 ms == 1 second
 
 
 
@@ -32,12 +32,15 @@ def takecommand():
     with sr.Microphone() as source:
         print("Listening!")
         audio = r.listen(source)
+        print("Audio Captured")
 
     try:
         command = r.recognize_google(audio)
+        print(())
         command = command.lower()
         if 'alexa' in command:
             command = command.replace('alexa', '')
+        ### add code here
     except sr.UnknownValueError:
         print("Alexa could not understand audio")
         command = "nothing"
