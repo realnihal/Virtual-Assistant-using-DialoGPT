@@ -36,7 +36,6 @@ def takecommand():
 
     try:
         command = r.recognize_google(audio)
-        print(())
         command = command.lower()
         if 'alexa' in command:
             command = command.replace('alexa', '')
@@ -57,6 +56,8 @@ def run_alexa():
         print("Could'nt hear you try again!")
     elif command == 'false':
         print("Say Alexa to start a command!")
+    elif command == 'stop':
+        exit()
     elif 'play' in command:
         song = command.replace('play','')
         talk("playing " + song)
