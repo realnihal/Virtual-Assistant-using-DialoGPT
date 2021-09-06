@@ -39,8 +39,6 @@ def takecommand():
         command = command.lower()
         if 'alexa' in command:
             command = command.replace('alexa', '')
-        else:
-            command = "false"
     except sr.UnknownValueError:
         print("Alexa could not understand audio")
         command = "nothing"
@@ -86,6 +84,7 @@ def run_alexa():
         talk(text)
 
 winsound.Beep(frequency, duration)
+talk("Hello Iam Alexa!, Please give a command following the buzz-word alexa")
 print("starting the assistant")
 while True:
     run_alexa()
