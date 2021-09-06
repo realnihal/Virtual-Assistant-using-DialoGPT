@@ -40,7 +40,8 @@ def takecommand():
         command = command.lower()
         if 'alexa' in command:
             command = command.replace('alexa', '')
-        ### add code here
+        else:
+            command = "false"
     except sr.UnknownValueError:
         print("Alexa could not understand audio")
         command = "nothing"
@@ -54,6 +55,8 @@ def run_alexa():
     print(command)
     if command == "nothing":
         print("Could'nt hear you try again!")
+    elif command == 'false':
+        print("Say Alexa to start a command!")
     elif 'play' in command:
         song = command.replace('play','')
         talk("playing " + song)
