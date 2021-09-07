@@ -37,23 +37,23 @@ def takecommand():
     try:
         command = r.recognize_google(audio)
         command = command.lower()
-        if 'alexa' in command:
-            command = command.replace('alexa', '')
+        if 'jarvis' in command:
+            command = command.replace('jarvis', '')
     except sr.UnknownValueError:
-        print("Alexa could not understand audio")
+        print("Jarvis could not understand audio")
         command = "nothing"
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
         command = "nothing"
     return command
 
-def run_alexa():
+def run_jarvis():
     command = takecommand()
     print(command)
     if command == "nothing":
         print("Could'nt hear you try again!")
     elif command == 'false':
-        print("Say Alexa to start a command!")
+        print("Say Jarvis to start a command!")
     elif command == 'stop':
         exit()
     elif 'play' in command:
@@ -84,7 +84,7 @@ def run_alexa():
         talk(text)
 
 winsound.Beep(frequency, duration)
-talk("Hello Iam Alexa!, Please give a command following the buzz-word alexa")
+talk("Hello Iam Jarvis!, Please give a command following the buzz-word Jarvis")
 print("starting the assistant")
 while True:
-    run_alexa()
+    run_jarvis()
